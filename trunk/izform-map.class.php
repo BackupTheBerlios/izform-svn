@@ -2,7 +2,7 @@
 
 
 /**
-* bibliothèque de classes permettant un mapping objet des méthodes
+* bibliothÃ¨que de classes permettant un mapping objet des mÃ©thodes
 * principales d'IzForm
 *
 * @package izForm
@@ -45,7 +45,7 @@
 
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addText()}
+* Classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addText()}
 * de la classe IzForm
 * @package izForm
 */
@@ -81,7 +81,7 @@ class textElem {
 }
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addPassword()}
+* Classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addPassword()}
 * de la classe IzForm
 * @package izForm
 */
@@ -117,7 +117,7 @@ class pwdElem {
 }
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addCheckBox()}
+* Classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addCheckBox()}
 * de la classe IzForm
 * @package izForm
 */
@@ -151,7 +151,7 @@ class chkBoxElem {
 }
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addRadio()}
+* Classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addRadio()}
 * de la classe IzForm
 * @package izForm
 */
@@ -185,7 +185,7 @@ class radioElem {
 }
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addSubmit()}
+* Classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addSubmit()}
 * de la classe IzForm
 * @package izForm
 */
@@ -217,7 +217,7 @@ class submitElem {
 }
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addReset()}
+* Classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addReset()}
 * de la classe IzForm
 * @package izForm
 */
@@ -249,7 +249,7 @@ class resetElem {
 }
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addFile()}
+* Classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addFile()}
 * de la classe IzForm
 * @package izForm
 */
@@ -279,7 +279,7 @@ class fileElem {
 }
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addHidden()}
+* Classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addHidden()}
 * de la classe IzForm
 * @package izForm
 */
@@ -299,7 +299,7 @@ class hiddenElem {
 }
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addTextArea()}
+* classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addTextArea()}
 * de la classe IzForm
 * @package izForm
 */
@@ -335,7 +335,7 @@ class textAreaElem {
 }
 
 /**
-* classe réalisant le mapping objet du prototype de la méthode {@link addSelect()}
+* Classe rÃ©alisant le mapping objet du prototype de la mÃ©thode {@link addSelect()}
 * de la classe IzForm
 * @package izForm
 */

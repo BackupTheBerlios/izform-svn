@@ -2,7 +2,7 @@
 
 
 /**
-* Classe de génération et de contrôle de formulaires
+* Classe de gÃ©nÃ©ration et de contrÃ´le de formulaires
 *
 * @package izForm
 * @author Loic Mathaud <loic@mathaud.net>
@@ -48,7 +48,7 @@
 define('IZF_PATH', dirname(__FILE__) . '/');
 
 /**
-* balise par défaut qui encadre les éléments de formulaire
+* balise par dï¿½faut qui encadre les Ã©lÃ©ments de formulaire
 */
 define('IZF_DEFAULT_WRAPPER', 'P');
 
@@ -63,7 +63,7 @@ require IZF_PATH . 'izform-map.class.php';
 class IzForm {
 	
 	/**
-	* Chaîne de caractère contenant la sortie html du formulaire
+	* Chaï¿½ne de caractÃ¨re contenant la sortie html du formulaire
 	*
 	* @var string
 	* @access private
@@ -71,7 +71,7 @@ class IzForm {
 	var $elementsHtml;
 	
 	/**
-	* Tableau contenant les éléments du formulaire
+	* Tableau contenant les Ã©lÃ©ments du formulaire
 	*
 	* @var array
 	* @access private
@@ -79,7 +79,7 @@ class IzForm {
 	var $elements = array();
 	
 	/**
-	* Tableau contenant les éléments à charger dans une liste déroulante
+	* Tableau contenant les Ã©lÃ©ments Ã  charger dans une liste dÃ©roulante
 	*
 	* @var array
 	* @access private
@@ -87,7 +87,7 @@ class IzForm {
 	var $selectElements = array();
 	
 	/**
-	* Tableau de 2 valeurs contenant les indices qui permettront de positionner un élément fieldset
+	* Tableau de 2 valeurs contenant les indices qui permettront de positionner un Ã©lÃ©ment fieldset
 	*
 	* @var array
 	* @access private
@@ -95,7 +95,7 @@ class IzForm {
 	var $fieldSetElements = array();
 	
 	/**
-	* Tableau de 2 valeurs contenant les indices qui permettront de positionner un élément optgroup dans une liste déroulante
+	* Tableau de 2 valeurs contenant les indices qui permettront de positionner un Ã©lÃ©ment optgroup dans une liste dÃ©roulante
 	*
 	* @var array
 	* @access private
@@ -103,7 +103,7 @@ class IzForm {
 	var $optGroupElements = array();
 	
 	/**
-	* Tableau qui est la copie du tableau superglobal correspond à la méthode employée pour soumettre le formulaire
+	* Tableau qui est la copie du tableau superglobal correspond Ã  la mÃ©thode employÃ©e pour soumettre le formulaire
 	* 
 	* @var array
 	* @access public
@@ -111,7 +111,7 @@ class IzForm {
 	var $submittedData = array();
 	
 	/**
-	* Tableau des valeurs à contrôler une fois le formulaire soumis
+	* Tableau des valeurs Ã  contrÃ´ler une fois le formulaire soumis
 	*
 	* @var array
 	* @access private
@@ -119,10 +119,10 @@ class IzForm {
 	var $verifData = array();
 	
 	/**
-	* Défini la manière dont est affiché le label
+	* Dï¿½fini la maniÃ¨re dont est affichÃ© le label
 	*
-	* Par défaut, vaut 'wrapp' : le label englobe l'élément de formulaire
-	* Autre valeur possible : 'nowrapp' : le label est refermé avant l'élément de formulaire
+	* Par dÃ©faut, vaut 'wrapp' : le label englobe l'Ã©lÃ©ment de formulaire
+	* Autre valeur possible : 'nowrapp' : le label est refermÃ© avant l'Ã©lÃ©ment de formulaire
 	*
 	* @var string
 	*/
@@ -132,15 +132,15 @@ class IzForm {
 	/**
 	* Constructeur de la classe
 	*
-	* Défini le script cible du formulaire, la méthode par laquelle il est soumis
+	* DÃ©fini le script cible du formulaire, la mÃ©thode par laquelle il est soumis
 	* et quel est le type d'encryption de celui-ci
 	* Le constructeur enregistre la balise d'ouverture du formulaire,
 	* copie dans la variable de classe {@link $submittedData} le bon tableau superglobal en fonction
-	* de la méthode employée pour envoyer le formulaire
+	* de la mÃ©thode employï¿½e pour envoyer le formulaire
 	*
 	* @param string $method methode par laquelle est soumis le formulaire. Peut prendre les valeurs 'post' ou 'get' ('post' par defaut)
-	* @param string $action script cible du formulaire. Si $action n'est pas spécifiée elle prend pour valeur le script même qui contient le formulaire
-	* @param string $id identifiant du formulaire. Prend 'form1' par défaut
+	* @param string $action script cible du formulaire. Si $action n'est pas spï¿½cifiï¿½e elle prend pour valeur le script mÃªme qui contient le formulaire
+	* @param string $id identifiant du formulaire. Prend 'form1' par dÃ©faut
 	* @param int $enctype type d'encryption du formulaire (0: multipart/form-data, 1: application/x-www-form-urlencoded)
 	* @access public
 	*/
@@ -171,18 +171,18 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un element de type input type="text" au formulaire
+	* Ajoute un Ã©lÃ©ment de type input type="text" au formulaire
 	*
 	* @param string $name nom du champs texte
-	* @param string $label label du champs texte: texte placé devant le champ pour l'identifier
+	* @param string $label label du champs texte: texte placÃ© devant le champ pour l'identifier
 	* @param string $value valeur du champs texte
 	* @param int $size taille du champs texte
 	* @param int $maxlength taille maximale du champs texte
-	* @param string $id identifiant du champs texte. Si n'est pas affecté, prend la valeur de $name
-	* @param string $before élement ouvrant encadrant le champs texte. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $after élement fermant encadrant le champs texte. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $lbl_attributes attributs pouvant être ajoutés au label du champs texte pour les css (class, id, style inline) ou du javascript
-	* @param string $elem_attributes attributs pouvant être ajoutés au champs texte pour les css (class, id, style inline) ou du javascript ou autre
+	* @param string $id identifiant du champs texte. Si n'est pas affectÃ©, prend la valeur de $name
+	* @param string $before Ã©lÃ©ment ouvrant encadrant le champs texte. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $after Ã©lement fermant encadrant le champs texte. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $lbl_attributes attributs pouvant Ãªtre ajoutÃ©s au label du champs texte pour les css (class, id, style inline) ou du javascript
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s au champs texte pour les css (class, id, style inline) ou du javascript ou autre
 	* @access public
 	*/
 	function addText( $name, $label = '', $value = '' , $size = '', $maxlength = '', $id = '', $before = '', $after = '', $elem_attributes = '', $lbl_attributes = '' ) {
@@ -223,18 +223,18 @@ class IzForm {
 	
 	
 	/**
-	* Ajoute un element de type input type="password" au formulaire
+	* Ajoute un Ã©lÃ©ment de type input type="password" au formulaire
 	*
 	* @param string $name nom du champs password
-	* @param string $label label du champs password: texte place devant le champ pour l'identifier
+	* @param string $label label du champs password: texte placÃ© devant le champ pour l'identifier
 	* @param string $value valeur du champs password
 	* @param int $size taille du champs password
 	* @param int $maxlength taille maximale du champs password
-	* @param string $id identifiant du champs password. Si n'est pas affecté, prend la valeur de $name
-	* @param string $before élement ouvrant encadrant le champs password. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $after élement fermant encadrant le champs password. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $lbl_attributes attributs pouvant être ajoutés au label du champs password pour les css (class, id, style inline) ou du javascript
-	* @param string $elem_attributes attributs pouvant être ajoutés au champs password pour les css (class, id, style inline) ou du javascript ou autre
+	* @param string $id identifiant du champs password. Si n'est pas affectÃ©, prend la valeur de $name
+	* @param string $before Ã©lÃ©ment ouvrant encadrant le champs password. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $after Ã©lement fermant encadrant le champs password. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $lbl_attributes attributs pouvant Ãªtre ajoutÃ©s au label du champs password pour les css (class, id, style inline) ou du javascript
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s au champs password pour les css (class, id, style inline) ou du javascript ou autre
 	* @access public
 	*/
 	function addPassword( $name, $label = '', $value = '', $size = '', $maxlength = '', $id = '', $before = '', $after = '', $elem_attributes = '', $lbl_attributes = '' ) {
@@ -274,17 +274,17 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un element de type input type="checkbox" au formulaire
+	* Ajoute un Ã©lÃ©ment de type input type="checkbox" au formulaire
 	*
-	* @param string $name nom de l'élément checkbox
-	* @param string $label label de l'élément checkbox : texte place après l'élement pour l'identifier
-	* @param string $value valeur de l'élément checkbox
-	* @param boolen $check valeur par défaut de l'état de la case à cocher (0 = non cochée, 1 = cochée)
-	* @param string $id identifiant de l'élément checkbox. Si n'est pas affecté, prend la valeur de $name
-	* @param string $before élement ouvrant encadrant l'élément checkbox. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $after élement fermant encadrant l'élément checkbox. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $lbl_attributes attributs pouvant être ajoutés au label de l'élément checkbox pour les css (class, id, style inline) ou du javascript
-	* @param string $elem_attributes attributs pouvant être ajoutés à l'élément checkbox pour les css (class, id, style inline) ou du javascript ou autre
+	* @param string $name nom de l'Ã©lÃ©ment checkbox
+	* @param string $label label de l'Ã©lÃ©ment checkbox : texte place aprÃ¨s l'Ã©lÃ©ment pour l'identifier
+	* @param string $value valeur de l'Ã©lÃ©ment checkbox
+	* @param boolean $check valeur par dÃ©faut de l'Ã©tat de la case Ã  cocher (0 = non cochï¿½e, 1 = cochÃ©e)
+	* @param string $id identifiant de l'Ã©lÃ©ment checkbox. Si n'est pas affectÃ©, prend la valeur de $name
+	* @param string $before Ã©lÃ©ment ouvrant encadrant l'Ã©lÃ©ment checkbox. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $after Ã©lÃ©ment fermant encadrant l'Ã©lÃ©ment checkbox. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $lbl_attributes attributs pouvant Ãªtre ajoutÃ©s au label de l'Ã©lÃ©ment checkbox pour les css (class, id, style inline) ou du javascript
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s Ã  l'Ã©lÃ©ment checkbox pour les css (class, id, style inline) ou du javascript ou autre
 	* @access public
 	*/
 	function addCheckBox( $name, $label, $value, $check = 0, $id = '', $before = '', $after = '', $elem_attributes = '', $lbl_attributes = '' ) {
@@ -323,17 +323,17 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un element de type input type="radio" au formulaire
+	* Ajoute un Ã©lÃ©ment de type input type="radio" au formulaire
 	*
-	* @param string $name nom de l'élément radio
-	* @param string $label label de l'élément radio : texte place après l'élement pour l'identifier
-	* @param string $value valeur de l'élément radio
-	* @param boolen $check valeur par défaut de l'état du bouton radio (0 = non coché, 1 = coché)
-	* @param string $id identifiant de l'élément radio. Si n'est pas affecté, prend la valeur de $name
-	* @param string $before élement ouvrant encadrant l'élément radio. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $after élement fermant encadrant l'élément radio. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $lbl_attributes attributs pouvant être ajoutés au label de l'élément radio pour les css (class, id, style inline) ou du javascript
-	* @param string $elem_attributes attributs pouvant être ajoutés à l'élément radio pour les css (class, id, style inline) ou du javascript ou autre
+	* @param string $name nom de l'Ã©lÃ©ment radio
+	* @param string $label label de l'Ã©lÃ©ment radio : texte place aprÃ¨s l'Ã©lÃ©ment pour l'identifier
+	* @param string $value valeur de l'Ã©lÃ©ment radio
+	* @param boolean $check valeur par dÃ©faut de l'Ã©tat du bouton radio (0 = non cochÃ©, 1 = cochÃ©)
+	* @param string $id identifiant de l'Ã©lÃ©ment radio. Si n'est pas affectÃ©, prend la valeur de $name
+	* @param string $before Ã©lÃ©ment ouvrant encadrant l'Ã©lÃ©ment radio. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $after Ã©lÃ©ment fermant encadrant l'Ã©lÃ©ment radio. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $lbl_attributes attributs pouvant Ãªtre ajoutÃ©s au label de l'Ã©lÃ©ment radio pour les css (class, id, style inline) ou du javascript
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s Ã  l'Ã©lÃ©ment radio pour les css (class, id, style inline) ou du javascript ou autre
 	* @access public
 	*/
 	function addRadio( $name, $label, $value, $check = 0, $id = '', $before = '', $after = '', $elem_attributes = '', $lbl_attributes = '' ) {
@@ -372,16 +372,16 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un element de type input type="submit" au formulaire
+	* Ajoute un Ã©lÃ©ment de type input type="submit" au formulaire
 	*
-	* @param string $value valeur du bouton submit (texte affiché sur le bouton)
+	* @param string $value valeur du bouton submit (texte affichÃ© sur le bouton)
 	* @param string $name nom du bouton submit
-	* @param string $label label du bouton submit : texte place devant le bouton pour l'identifier
-	* @param string $id identifiant du bouton submit. Si n'est pas affecté, prend la valeur de $name
-	* @param string $before élement ouvrant encadrant le bouton submit. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $after élement fermant encadrant le bouton submit. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $lbl_attributes attributs pouvant être ajoutés au label du bouton submit pour les css (class, id, style inline) ou du javascript
-	* @param string $elem_attributes attributs pouvant être ajoutés au bouton submit pour les css (class, id, style inline) ou du javascript ou autre
+	* @param string $label label du bouton submit : texte placÃ© devant le bouton pour l'identifier
+	* @param string $id identifiant du bouton submit. Si n'est pas affectÃ©, prend la valeur de $name
+	* @param string $before Ã©lÃ©ment ouvrant encadrant le bouton submit. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $after Ã©lÃ©ment fermant encadrant le bouton submit. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $lbl_attributes attributs pouvant Ãªtre ajoutÃ©s au label du bouton submit pour les css (class, id, style inline) ou du javascript
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s au bouton submit pour les css (class, id, style inline) ou du javascript ou autre
 	* @access public
 	*/
 	function addSubmit( $value, $name = '', $label = '', $id = '', $before = '', $after = '', $lbl_attributes = '', $elem_attributes = '' ) {
@@ -419,16 +419,16 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un element de type input type="reset" au formulaire
+	* Ajoute un Ã©lÃ©ment de type input type="reset" au formulaire
 	*
-	* @param string $value valeur du bouton reset (texte affiché sur le bouton)
+	* @param string $value valeur du bouton reset (texte affichÃ© sur le bouton)
 	* @param string $name nom du bouton reset
-	* @param string $label label du bouton reset : texte place devant le bouton pour l'identifier
-	* @param string $id identifiant du bouton reset. Si n'est pas affecté, prend la valeur de $name
-	* @param string $before élement ouvrant encadrant le bouton reset. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $after élement fermant encadrant le bouton reset. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $lbl_attributes attributs pouvant être ajoutés au label du bouton reset pour les css (class, id, style inline) ou du javascript
-	* @param string $elem_attributes attributs pouvant être ajoutés au bouton reset pour les css (class, id, style inline) ou du javascript ou autre
+	* @param string $label label du bouton reset : texte placÃ© devant le bouton pour l'identifier
+	* @param string $id identifiant du bouton reset. Si n'est pas affectÃ©, prend la valeur de $name
+	* @param string $before Ã©lÃ©ment ouvrant encadrant le bouton reset. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $after Ã©lÃ©ment fermant encadrant le bouton reset. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $lbl_attributes attributs pouvant Ãªtre ajoutÃ©s au label du bouton reset pour les css (class, id, style inline) ou du javascript
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s au bouton reset pour les css (class, id, style inline) ou du javascript ou autre
 	* @access public
 	*/
 	function addReset( $value, $name = '', $label = '', $id = '', $before = '', $after = '', $lbl_attributes = '', $elem_attributes = '' ) {
@@ -466,15 +466,15 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un element de type input type="file" au formulaire
+	* Ajoute un Ã©lÃ©ment de type input type="file" au formulaire
 	*
 	* @param string $name nom du bouton parcourir pour joindre un fichier
-	* @param string $label label du bouton parcourir : texte place devant le bouton pour l'identifier
-	* @param string $id identifiant du bouton parcourir. Si n'est pas affecté, prend la valeur de $name
-	* @param string $before élement ouvrant encadrant le bouton parcourir. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $after élement fermant encadrant le bouton parcourir. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $lbl_attributes attributs pouvant être ajoutés au label du bouton parcourir pour les css (class, id, style inline) ou du javascript
-	* @param string $elem_attributes attributs pouvant être ajoutés au bouton parcourir pour les css (class, id, style inline) ou du javascript ou autre
+	* @param string $label label du bouton parcourir : texte placÃ© devant le bouton pour l'identifier
+	* @param string $id identifiant du bouton parcourir. Si n'est pas affectÃ©, prend la valeur de $name
+	* @param string $before Ã©lÃ©ment ouvrant encadrant le bouton parcourir. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $after Ã©lÃ©ment fermant encadrant le bouton parcourir. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $lbl_attributes attributs pouvant Ãªtre ajoutÃ©s au label du bouton parcourir pour les css (class, id, style inline) ou du javascript
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutes au bouton parcourir pour les css (class, id, style inline) ou du javascript ou autre
 	* @access public
 	*/
 	function addFile( $name , $label = '', $id = '', $before = '', $after = '', $lbl_attributes = '', $elem_attributes = '' ) {
@@ -511,10 +511,10 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un element de type input type="hidden" au formulaire
+	* Ajoute un Ã©lÃ©ment de type input type="hidden" au formulaire
 	*
-	* @param string $name nom du champ caché
-	* @param string $value valeur du champ caché
+	* @param string $name nom du champ cachÃ©
+	* @param string $value valeur du champ cachÃ©
 	* @access public
 	*/
 	function addHidden( $name, $value) {
@@ -536,13 +536,13 @@ class IzForm {
 	* @param string $name nom de la zone de texte
 	* @param int $rows nombre de lignes de la zone de texte
 	* @param int $cols nombre de colonnes de la zone de texte
-	* @param string $label label de la zone de texte : texte place devant cette zone pour l'identifier
+	* @param string $label label de la zone de texte : texte placÃ© devant cette zone pour l'identifier
 	* @param string $value valeur de la zone de texte
-	* @param string $id identifiant unique de la zone de texte. Si n'est pas affecté, prend la valeur de $name
-	* @param string $before élement ouvrant encadrant la zone de texte. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $after élement fermant encadrant la zone de texte. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $lbl_attributes attributs pouvant être ajoutés au label de la zone de texte pour les css (class, id, style inline) ou du javascript
-	* @param string $elem_attributes attributs pouvant être ajoutés à la zone de texte pour les css (class, id, style inline) ou du javascript ou autre
+	* @param string $id identifiant unique de la zone de texte. Si n'est pas affectÃ©, prend la valeur de $name
+	* @param string $before Ã©lÃ©ment ouvrant encadrant la zone de texte. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $after Ã©lÃ©ment fermant encadrant la zone de texte. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $lbl_attributes attributs pouvant Ãªtre ajoutÃ©s au label de la zone de texte pour les css (class, id, style inline) ou du javascript
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s Ã  la zone de texte pour les css (class, id, style inline) ou du javascript ou autre
 	* @access public
 	*/
 	function addTextArea( $name, $rows, $cols, $label = '', $value = '', $id = '', $before = '', $after = '', $lbl_attributes = '', $elem_attributes = '' ) {
@@ -585,7 +585,7 @@ class IzForm {
 	* Ajoute un paragraphe de texte dans le formulaire
 	*
 	* @param string $value texte du paragraphe
-	* @param string $elem_attributes attributs pouvant être ajoutés au paragraphe pour les css (class, id, style inline)
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s au paragraphe pour les css (class, id, style inline)
 	* @access public
 	*/
 	function addParagraph( $value, $name = '', $elem_attributes = '' ) {
@@ -602,15 +602,15 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un élément '<option></option> dans une liste déroulante
-	* Charge la paire valeur/label dans la liste deroulante
+	* Ajoute un Ã©lÃ©ment '<option></option> dans une liste dÃ©roulante
+	* Charge la paire valeur/label dans la liste dÃ©roulante
 	*
-	* addDataInSelect précharge en fait les données qui seront dans la liste déroulante
-	* Il faut donc précharger toutes les valaurs que l'on souhaite pour la liste avant d'ajouter celle-ci
-	* avec la méthode {@link addSelect()}
+	* addDataInSelect prÃ©charge en fait les donnÃ©es qui seront dans la liste dÃ©roulante
+	* Il faut donc prÃ©charger toutes les valeurs que l'on souhaite pour la liste avant d'ajouter celle-ci
+	* avec la mÃ©thode {@link addSelect()}
 	*
 	* @param string $value valeur de l'attribut 'value' de la balise 'option'
-	* @param string $label texte visible de l'element option de la liste deroulante
+	* @param string $label texte visible de l'Ã©lÃ©ment option de la liste dÃ©roulante
 	* @access public
 	*/
 	function addDataInSelect( $value, $label ) {
@@ -622,9 +622,9 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un élément dans le tableau selectElement[], tableau de préchargement des éléments pour une lsite déroulante
+	* Ajoute un Ã©lÃ©ment dans le tableau selectElement[], tableau de prÃ©chargement des Ã©lÃ©ments pour une liste dÃ©roulante
 	*
-	* @param array $res tableau associatif contenu la valeur et le label de la balise '<option>' à rajouter à la liste déroulante
+	* @param array $res tableau associatif contenu la valeur et le label de la balise '<option>' Ã  rajouter Ã  la liste dÃ©roulante
 	* @access private
 	*/
 	function setSelectElement( $res ) {
@@ -632,12 +632,12 @@ class IzForm {
 	}
 	
 	/**
-	* Défini les limites pour mettre des éléments '<option>' d'une liste déroulante dans une balsie '<optgroup>'
+	* DÃ©fini les limites pour mettre des Ã©lÃ©ments '<option>' d'une liste dÃ©roulante dans une balise '<optgroup>'
 	*
-	* Cette méthode défini les bornes parmi les éléments déjà préchargés par la méthode {@link addDataInSelect()}
+	* Cette mÃ©thode dÃ©fini les bornes parmi les Ã©lÃ©ments dÃ©jÃ  prÃ©chargÃ©s par la mÃ©thode {@link addDataInSelect()}
 	*
-	* @param string $start élement de début. Correspond à l'attribut $value du premier élément qui sera dans l'optgroup
-	* @param string $end élement de fin. Correspond à l'attribut $value du dernier élément qui sera dans l'optgroup
+	* @param string $start Ã©lÃ©ment de dï¿½but. Correspond Ã  l'attribut $value du premier Ã©lÃ©ment qui sera dans l'optgroup
+	* @param string $end Ã©lÃ©ment de fin. Correspond Ã  l'attribut $value du dernier Ã©lÃ©ment qui sera dans l'optgroup
 	* @access public
 	*/
 	function setOptGroupLimiters( $start, $end ) {
@@ -667,7 +667,7 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute la balise '<optgroup>' après avoir défini ses bornes
+	* Ajoute la balise '<optgroup>' aprÃ¨s avoir dÃ©fini ses bornes
 	*
 	* @param string $label label de la balise <optgroup>
 	* @access public
@@ -693,21 +693,21 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute une liste deroulante au formulaire
+	* Ajoute une liste dÃ©roulante au formulaire
 	*
-	* Vous devez tout d'abord charger les elements constituants la liste avec les méthodes
+	* Vous devez tout d'abord charger les Ã©lÃ©ments constituants la liste avec les mÃ©thodes
 	* {@link addDataInSelect()}, {@link setOptGroupLimiters()} et {@link addOptGroup()}
-	* Une fois la liste ajoutée, le tableau des éléments qui ont été préchargés est vidé
+	* Une fois la liste ajoutÃ©e, le tableau des Ã©lÃ©ments qui ont Ã©tÃ© prÃ©chargÃ©s est vidÃ©
 	*
-	* @param string $name nom de la liste déroulante
-	* @param string $label label de la liste deroulante: texte placé devant pour l'identifier
-	* @param string $selected indique l'élément de la liste déroulante séléctionné par defaut. Correspond à l'attribut 'value' de la balsie '<option>'
-	* @param string $id identifiant unique de la liste déroulante
-	* @param int $size nombre de lignes visibles de la liste déroulante. Vaut 1 par defaut
-	* @param string $before élement ouvrant encadrant laliste déroulante. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $after élement fermant encadrant la liste déroulante. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par défaut
-	* @param string $lbl_attributes attributs pouvant être ajoutés au label de la liste déroulante pour les css (class, id ou style inline) ou du javascript
-	* @param string $elem_attributes attributs pouvant être ajoutés à la liste déroulante pour les css (class, id ou style inline) ou du javascript
+	* @param string $name nom de la liste dÃ©roulante
+	* @param string $label label de la liste dÃ©roulante: texte placÃ© devant pour l'identifier
+	* @param string $selected indique l'Ã©lÃ©ment de la liste dÃ©roulante sÃ©lÃ©ctionnÃ© par defaut. Correspond Ã  l'attribut 'value' de la balise '<option>'
+	* @param string $id identifiant unique de la liste dÃ©roulante
+	* @param int $size nombre de lignes visibles de la liste dÃ©roulante. Vaut 1 par dÃ©faut
+	* @param string $before Ã©lÃ©ment ouvrant encadrant la liste dÃ©roulante. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $after Ã©lÃ©ment fermant encadrant la liste dÃ©roulante. Peut prendre 3 valeurs : P (paragraphe), D (div) ou B (espace). Vaut P par dÃ©faut
+	* @param string $lbl_attributes attributs pouvant Ãªtre ajoutÃ©s au label de la liste dÃ©roulante pour les css (class, id ou style inline) ou du javascript
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s Ã  la liste dÃ©roulante pour les css (class, id ou style inline) ou du javascript
 	* @access public 
 	*/
 	function addSelect( $name, $label = '', $selected = '', $id = '', $size = '1', $multiple = '0', $before = '', $after = '', $lbl_attributes = '', $elem_attributes = '' ) {
@@ -749,7 +749,7 @@ class IzForm {
 	}
 	
 	/**
-	* Vide la liste des éléments à charger dans une liste déroulante
+	* Vide la liste des Ã©lÃ©ments Ã  charger dans une liste dÃ©roulante
 	*
 	* @access private
 	*/
@@ -758,12 +758,12 @@ class IzForm {
 	}
 	
 	/**
-	* Défini les limites pour mettre un élément fieldset dans le formulaire
+	* DÃ©fini les limites pour mettre un Ã©lÃ©ment fieldset dans le formulaire
 	*
-	* Cette méthode défini les bornes parmi les éléments du formulaire
+	* Cette mÃ©thode dÃ©fini les bornes parmi les Ã©lÃ©ments du formulaire
 	*
-	* @param string $start élement de début. Correspond à l'attribut $name du premier élément qui sera dans l'optgroup
-	* @param string $end élement de fin. Correspond à l'attribut $name du dernier élément qui sera dans l'optgroup
+	* @param string $start Ã©lÃ©ment de dÃ©but. Correspond Ã  l'attribut $name du premier Ã©lÃ©ment qui sera dans l'optgroup
+	* @param string $end Ã©lÃ©ment de fin. Correspond Ã  l'attribut $name du dernier Ã©lÃ©ment qui sera dans l'optgroup
 	* @access public
 	*/
 	function setFieldSetLimiters( $start, $end ) {
@@ -793,10 +793,10 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un fieldset après avoir défini ses bornes avec la méthode {@link setFieldSetLimiters()}
+	* Ajoute un fieldset aprÃ¨s avoir dÃ©fini ses bornes avec la mÃ©thode {@link setFieldSetLimiters()}
 	*
-	* @param string $legend légende associée au fieldset
-	* @param string $elem_attributes attributs pouvant être ajoutés au fieldset pour les css (class, id ou style inline) ou du javascript
+	* @param string $legend lÃ©gende associÃ©e au fieldset
+	* @param string $elem_attributes attributs pouvant Ãªtre ajoutÃ©s au fieldset pour les css (class, id ou style inline) ou du javascript
 	* @access public
 	*/
 	function addFieldSet( $legend = '', $elem_attributes = '' ) {
@@ -825,9 +825,9 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un élément de formulaire dans le tableau elements[] qui les contient tous
+	* Ajoute un Ã©lÃ©ment de formulaire dans le tableau elements[] qui les contient tous
 	*
-	* @param array tableau contenant les paramètres d'un élément de formulaire à ajouter
+	* @param array tableau contenant les paramÃ¨tres d'un Ã©lÃ©ment de formulaire Ã  ajouter
 	* @access private
 	*/
 	function setElement( $res ) {
@@ -837,8 +837,8 @@ class IzForm {
 	/**
 	* Affiche le formulaire
 	* 
-	* Cette méthode ajoute le dernier élément au formulaire (balise de fermeture de celui-ci) puis
-	* va faire générer la sortie html pour chaque élément avant de l'afficher
+	* Cette mÃ©thode ajoute le dernier Ã©lÃ©ment au formulaire (balise de fermeture de celui-ci) puis
+	* va faire gÃ©nÃ©rer la sortie html pour chaque Ã©lÃ©ment avant de l'afficher
 	* @access public
 	*/
 	function displayForm() {
@@ -853,11 +853,11 @@ class IzForm {
 	}
 	
 	/**
-	* Génère la sortie html pour les éléments de formulaire
+	* GÃ©nÃ¨re la sortie html pour les Ã©lÃ©ments de formulaire
 	*
 	* Stock la sortie html dans la chaine {@link elementsHtml}
 	*
-	* @param array $res tableau contenant les paramètres d'un élement de formulaire
+	* @param array $res tableau contenant les paramÃ¨tres d'un Ã©lÃ©ment de formulaire
 	* @access private
 	*/
 	function setElementHtml( $res ) {
@@ -1143,9 +1143,9 @@ class IzForm {
 	}
 	
 	/**
-	* Spécifie si le formulaire a été envoyé ou non
+	* Spï¿½cifie si le formulaire a Ã©tÃ© envoyÃ© ou non
 	*
-	* @return boolen renvoi vrai si le formulaire a été soumis, falsse sinon
+	* @return boolean renvoi vrai si le formulaire a Ã©tÃ© soumis, false sinon
 	* @access public
 	*/
 	function isSubmitted() {
@@ -1167,13 +1167,13 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute un message en début du formulaire dans un paragraphe
+	* Ajoute un message en dÃ©but du formulaire dans un paragraphe
 	*
-	* Peut être utilisé pour des messages d'erreur par exemple
+	* Peut Ãªtre utilisÃ© pour des messages d'erreur par exemple
 	*
-	* @param string $msg message à afficher
-	* @param $container balise contenant le message. Peut prendre les valeurs 'p' pour un paragraphe ou 'd' pour une div. Vaut 'p' par défaut
-	* @param $elem_attributes attributs pouvant être ajoutés à la balise du message pour les css (class, id ou style inline) ou du javascript
+	* @param string $msg message Ã  afficher
+	* @param $container balise contenant le message. Peut prendre les valeurs 'p' pour un paragraphe ou 'd' pour une div. Vaut 'p' par dÃ©faut
+	* @param $elem_attributes attributs pouvant Ãªtre ajoutÃ©s Ã  la balise du message pour les css (class, id ou style inline) ou du javascript
 	* @access public
 	*/
 	function addMsgAtTop( $msg, $container = 'p', $elem_attributes = '' ) {
@@ -1194,14 +1194,14 @@ class IzForm {
 	}
 	
 	/**
-	* Ajoute une valeur soumise à la liste de celles à vérifier
+	* Ajoute une valeur soumise Ã  la liste des valeurs Ã  vÃ©rifier
 	* 
-	* Permet de définir les variables à tester parmis celles présentent
-	* dans le formulaire en précisant le type de vérification
+	* Permet de dÃ©finir les variables Ã  tester parmis celles prÃ©sentes
+	* dans le formulaire en prÃ©cisant le type de vÃ©rification
 	*
-	* @param string $name nom de l'élément à vérifier
-	* @param string $dataType type de vérification à effectuer sur cet élément. Voir la méthode {@link verifyData()} pour la liste des types
-	* @param string $option options possibles à passer pour le type de vérification à effectuer
+	* @param string $name nom de l'Ã©lÃ©ment Ã  vÃ©rifier
+	* @param string $dataType type de vÃ©rification Ã©effectuer sur cet Ã©lÃ©ment. Voir la mÃ©thode {@link verifyData()} pour la liste des types
+	* @param string $option options possibles Ã  passer pour le type de vÃ©rification Ã  effectuer
 	* @access public
 	*/
 	function addDataToVerif($name, $dataType, $option = '' ) {
@@ -1217,9 +1217,9 @@ class IzForm {
 	}
 	
 	/**
-	* Vérifie les variables spécifiées par la méthode {@link addDataToVerif()}
+	* VÃ©rifie les variables spÃ©cifiÃ©es par la mÃ©thode {@link addDataToVerif()}
 	*
-	* @return boolean Renvoi vrai si les données sont valides, faux sinon
+	* @return boolean Retourne vrai si les donnÃ©es sont valides, faux sinon
 	* @access public
 	*/
 	function isValidData() {
@@ -1234,7 +1234,7 @@ class IzForm {
 					break;
 				case 'maxlength':
 					if ( empty($data['option']) ) {
-						$this->addMsgAtTop( 'Veuillez préciser la longueur maximale demandée pour le champ <em>'. $data['name'] .'</em>' );
+						$this->addMsgAtTop( 'Veuillez prï¿½ciser la longueur maximale demandï¿½e pour le champ <em>'. $data['name'] .'</em>' );
 						$error = true;
 					} elseif ( strlen( $data['value'] ) > $data['option'] ) {
 						$this->addMsgAtTop( 'le champ <em>'. $data['name'] .'</em> est trop long. (longueur max: '. $data['option'] .')' );
@@ -1243,7 +1243,7 @@ class IzForm {
 					break;
 				case 'minlength':
 					if (  empty($data['option']) ) {
-						$this->addMsgAtTop( 'Veuillez préciser la longueur minimale demandée pour le champ <em>'. $data['name'] .'</em>' );
+						$this->addMsgAtTop( 'Veuillez prï¿½ciser la longueur minimale demandï¿½e pour le champ <em>'. $data['name'] .'</em>' );
 						$error = true;
 					} elseif ( strlen( $data['value'] ) < $data['option'] ) {
 						$this->addMsgAtTop( 'le champ <em>'. $data['name'] .'</em> est trop court. (longueur min: '. $data['option'] .')' );
@@ -1257,7 +1257,7 @@ class IzForm {
 					}
 					break;
 				default:
-					$this->adMsgAtTop( 'le type de vérification demandé n\'existe pas');
+					$this->adMsgAtTop( 'le type de vï¿½rification demandï¿½ n\'existe pas');
 					break;
 			}
 		}
@@ -1268,7 +1268,7 @@ class IzForm {
 	}
 	
 	/**
-	* Modifie le type de mise en page du label avec l'élément de formulaire auquel il est associé
+	* Modifie le type de mise en page du label avec l'Ã©lÃ©ment de formulaire auquel il est associÃ©
 	*
 	* @param string $mode type d'affichage : 'wrapp' ou 'nowrapp'
 	* @access public
@@ -1281,7 +1281,10 @@ class IzForm {
 	
 	
 	/**
+	* Retourne l'indice du tableau {@link elements} pour l'Ã©lÃ©ment dÃ©signÃ© par $name
 	*
+	* @param string $name nom de l'Ã©lement dans le tableau {@link elements}
+	* @access private
 	*/
 	function getElementIndex($name) {
 		foreach ($this->elements as $k => $v) {
